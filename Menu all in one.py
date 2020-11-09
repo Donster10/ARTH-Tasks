@@ -19,7 +19,7 @@ while 5>4 :
 		print("Please wait a second....!!!!")
 		a = sub.getstatusoutput("yum install firefox")
 		if a[0] == 0:
-			print("Yum is already configered in this system.")
+			print("Yum is already configured in this system.")
 			input("Press Enter to continue")
 			os.system("clear")
 		else:
