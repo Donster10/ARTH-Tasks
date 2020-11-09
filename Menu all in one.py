@@ -6,40 +6,40 @@ print("\t \t Welcome, This is a Menu Program. It will reduce your Work & Time.")
 print(" \n -------------------------------------------------------------------------------------------------------------------")
 os.system("tput setaf 7")
 while 5>4 :
-	yourChoice = int(input("""Select the Technology you want install in your PC with ease :
-	1.Configure YUM
-	2.Docker
-	3.Create partition
-	4.LVM
-	5.hadoop
-	6.httpd
-	7.Exit """))
+	yourChoice = int(input("""Select the Technology you want Install in your PC :
+	1.Configure YUM.
+	2.Docker.
+	3.Create Partition.
+	4.LVM.
+	5.Hadoop.
+	6.HTTPd.
+	7.Exit. """))
 	
 	if yourChoice == 1:
-		print("please wait a second")
+		print("Please wait a second....!!!!")
 		a = sub.getstatusoutput("yum install firefox")
 		if a[0] == 0:
-			print("yum is already configered")
+			print("Yum is already configered in this system.")
 			input("Press Enter to continue")
 			os.system("clear")
 		else:
 			sub.getstatusoutput("echo '[dvd1] \nbaseurl=file:///run/media/root/RHEL-8-0-0-BaseOS-x86_64/AppStream \ngpgcheck=0 \n\n[dvd2] \nbaseurl=file:///run/media/root/RHEL-8-0-0-BaseOS-x86_64/BaseOS \ngpgcheck=0' > yumconfi.repo | mv yumconfi.repo /etc/yum.repos.d/")
-			print("yum is configured in yumcondi.repo file")
+			print("Yum is configured in yumcondi.repo file")
 			input("Press Enter to Continue")
 			os.system("clear")
 	
 	elif yourChoice == 2:
 		while 5>4 :
 			dockerInput=int(input("""Which operations you want to perform in Docker ? :
-			1.Install Docker
-			2.Start Docker service
-			3.Status of Docker
-			4.Download Docker Image in your OS
-			5.See the list of Docker Images installed in your OS
-			6.Install Docker Image in your pc
-			7.Boot any os which is previously installed
-			8.Terminet Docker Image
-			9.Exit """))
+			1.Install Docker.
+			2.Start Docker service.
+			3.Status of Docker.
+			4.Download Docker Image in your OS.
+			5.See the list of Docker Images installed in your OS.
+			6.Install Docker Image in your PC.
+			7.Boot any os which is previously installed.
+			8.Terminate Docker Image.
+			9.Exit. """))
 		
 			if dockerInput == 1:
 				os.system("dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo")		
@@ -92,10 +92,10 @@ while 5>4 :
 	elif yourChoice == 3:
 		while 5>4 :
 			partitionChoice = int(input("""Which Partition Concept you want to perform ?:
-			1.Create the Partition
-			2.See all the Disk present in your pc
-			3.See all Mounted Disks present in your pc
-			4.Exit """))
+			1.Create the Partition.
+			2.See all the Disk present in your PC.
+			3.See all Mounted Disks present in your PC.
+			4.Exit. """))
 		
 			if partitionChoice == 1:
 				os.system("fdisk -l")
@@ -104,17 +104,17 @@ while 5>4 :
 				p. To see the details of your disk.
 				n. To create new partition.
 				d. To delete partition.
-				w. To save changes.""")
+				w. To save changes. """)
 				
 				os.system("fdisk /dev/{}".format(diskName))
 				os.system("udevadm settle")
 				os.system("lsblk")
-				diskNumber = int(input("How many partition you want to create: "))
+				diskNumber = int(input("How many partition you want to create ?: "))
 				if diskNumber == 0:
 					break
 				else :
 					for i in range(diskNumber-1):
-						name = ['first','second','third','fourth','fifth','sixth','seventh','eighth','neneth']
+						name = ['first','second','third','fourth','fifth','sixth','seventh','eighth','ninth']
 						partLoca = input("Enter your {} partition name which you created (like sdc1): ".format(name[i]))
 						partName = input("In which directory you want to mount your partition: ")
 						confirm = sub.getstatusoutput("mkdir {}".format(partName))
@@ -140,11 +140,12 @@ while 5>4 :
 	elif yourChoice == 4:
 		while 5>4 :
 			lvmChoice = int(input("""Which operations you want to perform in LVM ?
-		1.Create or Delete Logical Partiton
-		2.Extend Partition Size.
-		3.Reduce Partition Size.
-		4.Extend Virtual Group Size.
-		5.Exit."""))
+			1.Create or Delete Logical Partition.
+			2.Extend Partition Size.
+			3.Reduce Partition Size.
+			4.Extend Virtual Group Size.
+			5.Exit."""))
+			
 			if lvmChoice == 1:
 				os.system("fdisk -l")
 				b=int(input("Enter how much storage partition you want to create:"))
@@ -199,10 +200,11 @@ while 5>4 :
 	elif yourChoice == 5:
 		while 5>4 :
 			hadoopChoice = int(input("""Which operations you want to perform in Hadoop ?
-		1.Create Hadoop Master Name node
-		2.Create Hadoop Slave Data node
-		3.Create Hadoop Clinte Node.
-		4.exit"""))
+			1.Create Hadoop Master Name node.
+			2.Create Hadoop Slave Data node.
+			3.Create Hadoop Client Node.
+			4.Exit. """))
+			
 			if hadoopChoice == 1:
 				dirName = input("Enter Directory Name (for eg: name): ")
 				check = sub.getstatusoutput("mkdir /{}".format(dirName))
@@ -248,12 +250,13 @@ while 5>4 :
 	elif yourChoice == 6:
 		while 5>4:
 			httpdChoice = int(input("""Which operation you want to perform in HTTPd(Apache server):
-		1.Install HTTPd(Apache) Server.
-		2.Start HTTPd Server.
-		3.Status of HTTPd Server.
-		4.Stop HTTPd Server.
-		5.Uninstall HTTPd Server.
-		6.Exit."""))
+			1.Install HTTPd(Apache) Server.
+			2.Start HTTPd Server.
+			3.Status of HTTPd Server.
+			4.Stop HTTPd Server.
+			5.Uninstall HTTPd Server.
+			6.Exit."""))
+			
 			if httpdChoice == 1:
 				os.system("yum install httpd")
 				print("HTTPd is installed successfully.")
